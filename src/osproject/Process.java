@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Process {
+public class Process implements Runnable{
 
 
 	private static int PID;
@@ -22,6 +22,16 @@ public class Process {
 	private static Date End_time;
 	private int Attempts;
 	private int Sleep_time;
+	
+	public Process()
+	{
+		this.Attempts = 0;
+		this.Sleep_time = 0;
+		this.PID = 0;
+		this.Priority = 0;
+		this.task = 0;
+		
+	}
 
 
 	public Process(int pID, int task, int priority, Date create_time, Date start_time, Date end_time, int attempts,
@@ -37,7 +47,17 @@ public class Process {
 		Sleep_time = sleep_time;
 	}
 
-
+	public Process(Process A)
+	{
+		this.PID = A.PID;
+		this.task = A.task;
+		this.Priority = A.Priority;
+		this.Create_time = A.Create_time;
+		this.Start_time = A.Start_time;
+		this.End_time = A.End_time;
+		this.Attempts = A.Attempts;
+		this.Sleep_time = A.Sleep_time;
+	}
 
 	public int getPID() {
 		return PID;
@@ -271,6 +291,20 @@ public class Process {
 		
 		
 	}
+	
+	public void Display()
+	{
+		System.out.println("Process information");
+		System.out.println("PID: " + this.PID);
+		System.out.println("Attempts: " + this.Attempts);
+		System.out.println("Sleep time: " + this.Sleep_time);
+		System.out.println("task: " + this.task);
+		System.out.println("Priority: " + this.Priority);
+		System.out.println("Create time: " + this.Create_time);
+		System.out.println("Start time: " + this.Start_time);
+		System.out.println("End time: " + this.End_time);
+
+	}
 
 	public static void main(String[] args)
 	{
@@ -306,6 +340,13 @@ public class Process {
 		int pri = generator.nextInt(4)+1;
 		setPriority(pri);
 		
+		
+	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
 		
 	}
 
