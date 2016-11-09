@@ -15,68 +15,19 @@ public class Map {
 		Head = entry;
 	}
 	
-	public void Search(String x)
-	{
-		MapEntry m = Head;
-		while(m != null)
-		{
-			if(m.getKey() == x)
-			{
-				System.out.println("Found!");
-				break;
-			}
-			else{
-				m.getNextMapEntry();
-				}
-		}
-	}
 	
 	
 	
-	public void Delete(int V)
-	{
-		if(Head.getValue()== V)
-		{
-			Head=Head.getNextMapEntry();
-		}
-		
-		MapEntry temp = Head;
-		while(temp.getNextMapEntry()!= null)
-	{
-		if(temp.getNextMapEntry().getValue() == V)
-		{
-			temp.setNextMapEntry(temp.getNextMapEntry());
-			break;
-		}
-		else {
-			temp = temp.getNextMapEntry();
-		}
+	public MapEntry getHead() {
+		return Head;
 	}
-		
+
+	public void setHead(MapEntry head) {
+		Head = head;
 	}
+
 	
-	public void Sort()
-	{
-		MapEntry temp = new MapEntry();
-		MapEntry node = Head,i,j;
-	        Head = node;
-	        i = node;
-	        j = node.getNextMapEntry();
-	        
-	        while(i.getNextMapEntry()!= null)
-	        {
-	        	while(j.getNextMapEntry()!= null)
-	        	{
-	        		if((Integer)i.getValue() < (Integer)j.getValue()) {
-	                    temp = i.getNextMapEntry();
-	                    i.setNextMapEntry(j.getNextMapEntry()); 
-	                    j.setNextMapEntry(temp);
-	        	}
-	        		j= j.getNextMapEntry();
-	        	}
-	        	i= i.getNextMapEntry();
-	        }
-	}
+	
 	
 	public void InsertAtBack(String K,int V)
 	{
