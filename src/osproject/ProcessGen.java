@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Process implements Runnable{
+public class ProcessGen implements Runnable{
 
 	
 	private static int PID;
@@ -25,7 +25,7 @@ public class Process implements Runnable{
 	
 	
 
-	public Process()
+	public ProcessGen()
 	{
 		Calendar cal = Calendar.getInstance();
 	

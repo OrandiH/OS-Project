@@ -11,13 +11,7 @@ public class QueueNode {
 		this.PrevNode = null;
 		this.NextNode = null;
 	}
-	public QueueNode(Process A)
-	{
-		Process temp = new Process(A);
-		process = temp;
-		this.PrevNode = null;
-		this.NextNode = null;
-	}
+	
 
 	public QueueNode getPrevNode() {
 		return PrevNode;
@@ -35,11 +29,7 @@ public class QueueNode {
 		NextNode = nextNode;
 	}
 	
-	public void Display()
-	{
-		this.process.Display();
-		
-	}
+	
 	
 
 }

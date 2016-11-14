@@ -10,9 +10,9 @@ public class Queue {
 		Rear = null;
 	}
 	
-	public void Enqueue(Process A)
+	public void Enqueue(ProcessGen A)
 	{
-		QueueNode Temp = new QueueNode(A);
+		QueueNode Temp = new QueueNode();
 		
 		if(Temp != null)
 		{
