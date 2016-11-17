@@ -1,18 +1,35 @@
 package osproject;
 
+import java.util.Random;
+
 public class Map {
 	private MapEntry Head;
 	
 	public Map()
 	{
-		this.Head = null;
+		Head = null;
 	}
 	
-	public void Insert(String K,int V)
+	public void InsertAtFront(String K,int V)
 	{
-		MapEntry entry = new MapEntry(K,V);
-		entry.setNextMapEntry(Head);
-		Head = entry;
+		MapEntry Temp = new MapEntry();
+		if(Temp != null)
+		{
+			Temp.setKey(K);
+			Temp.setValue(V);
+			Temp.setNextMapEntry(null);
+		}
+		
+		if(Head == null)
+		{
+			Head = Temp;
+		}
+		else
+		{
+			Temp.setNextMapEntry(Head);
+			Head = Temp;
+		}
+		
 	}
 	
 	public void InsertAtBack(String K,int V)
@@ -62,6 +79,69 @@ public class Map {
 	        	i= i.getNextMapEntry();
 	        }
 	}
+	
+	public void Search()
+	{
+		Random n = new Random();
+		int SearchVal = n.nextInt(977 - 10 + 1) + 10;
+		
+		MapEntry temp = this.Head;
+		while(temp !=null && temp.getValue() == SearchVal)
+		{
+			temp = temp.getNextMapEntry();
+			
+			if(temp != null)
+			{
+				System.out.println("Value " + temp.getValue() + "found with key: " + temp.getKey());
+				break;
+			}
+			
+		}
+	}
+	
+	public void sort()
+	{
+		MapEntry temp = this.Head,prev,current;
+		this.Head = null;
+		
+		while(temp != null)
+		{
+			prev = null;
+			current = this.Head;
+			while(current != null && current.getValue() < temp.getValue())
+			{
+				prev = current;
+				current = current.getNextMapEntry();
+			}
+			if(prev == null)
+			{
+				this.Head = temp;
+				temp = temp.getNextMapEntry();
+				this.Head.setNextMapEntry(current);
+			}
+			else
+			{
+				prev.setNextMapEntry(temp);
+				temp = temp.getNextMapEntry();
+				prev.getNextMapEntry().setNextMapEntry(current);
+			}
+		}
+	}
+	public int Calculate()
+	{
+		int sum = 0;
+		MapEntry temp = new MapEntry();
+		temp = this.Head;
+		while (temp != null)
+		{
+			sum = temp.getValue() + sum;
+			temp = temp.getNextMapEntry();
+		}
+		
+		return sum;
+	}
+	
+	
 	public MapEntry getHead() {
 		return Head;
 	}

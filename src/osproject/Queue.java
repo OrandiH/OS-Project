@@ -10,9 +10,9 @@ public class Queue {
 		Rear = null;
 	}
 	
-	public void Enqueue(ProcessGen A)
+	public void Enqueue(Node A)
 	{
-		QueueNode Temp = new QueueNode();
+		QueueNode Temp = new QueueNode(A);
 		
 		if(Temp != null)
 		{
@@ -32,6 +32,22 @@ public class Queue {
 		}
 	}
 	
+	public QueueNode getFront() {
+		return Front;
+	}
+
+	public void setFront(QueueNode front) {
+		Front = front;
+	}
+
+	public QueueNode getRear() {
+		return Rear;
+	}
+
+	public void setRear(QueueNode rear) {
+		Rear = rear;
+	}
+
 	public boolean IsQueueEmpty()
 	{
 		if (Front == null)
@@ -72,6 +88,16 @@ public class Queue {
 		
 		}
 	
+	}
+	public void RunProcessAtNode()
+	{
+		QueueNode temp = new QueueNode();
+		temp = this.Front;
+		while(temp != null)
+		{
+			temp.GetProcessList().run();
+			temp.getNextNode();
+		}
 	}
 
 }

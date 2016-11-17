@@ -110,7 +110,7 @@ public static int getPID() {
 
 
 
-	public static int getPriority() {
+	public int getPriority() {
 		return Priority;
 	}
 
