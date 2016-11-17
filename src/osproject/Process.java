@@ -1,4 +1,5 @@
 package osproject;
+
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -58,6 +59,7 @@ public class Process implements Runnable{
 	*/
 
 
+<<<<<<< HEAD
 
 /*
 public void Delete(int V)
@@ -172,15 +174,73 @@ public static int getPID() {
 
 	public int getSleep_time() {
 		return Sleep_time;
-	}
-
-
-
-	public void setSleep_time(int sleep_time) {
+=======
+	//public Process//(int pID, int task, int priority, Date create_time, Date start_time, Date end_time, int attempts,
+	/*		int sleep_time) {
+		super();
+		PID = pID;
+		this.task = task;
+		Priority = priority;
+		Create_time = create_time;
+		Start_time = start_time;
+		End_time = end_time;
+		Attempts = attempts;
 		Sleep_time = sleep_time;
+	}*/
+
+	public Process (int x)
+	{
+		Random rn = new Random();
+		int task = rn.nextInt(5);
+		
+	
+		
+		Random generator = new Random();
+		
+		PID = generator.nextInt(40)+1;
+		
+		
+		Priority = generator.nextInt(5)+1;
+		switch(x)
+		{
+		case 1: Map mp = new Map();
+		mp.Insert("well well", 10);
+		
+			break;
+		case 2:
+			mp.Delete(Priority);
+			break;
+			
+		case 3:
+			mp.Search("WEL WELL");
+			break;
+			
+		case 4:
+			System.out.println("Sorting file?");
+			mp.Sort();
+			break;
+		case 5:
+			//Count_integers();
+			break;
+		default: System.out.println("Invalid task number");
+			
+		}
+>>>>>>> f6a0d560407135ffcdb041a6df752200b8252571
 	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+<<<<<<< HEAD
 	
 	public synchronized static void Insert()
+=======
+}
+	/*public static void NewRecord(ArrayList<String> list)
+>>>>>>> f6a0d560407135ffcdb041a6df752200b8252571
 	{
 		Random ran = new Random();
 		MapEntry newMapEntry = new MapEntry("R11",ran.nextInt());
@@ -210,6 +270,7 @@ public static int getPID() {
 		}
 		
 	}
+<<<<<<< HEAD
 	
 	
 
@@ -219,17 +280,28 @@ public static int getPID() {
 public void run() {
 	// TODO Auto-generated method stub
 	if(this.task == 1)
+=======
+	/**/
+/*	public static void Count_intgers()
+>>>>>>> f6a0d560407135ffcdb041a6df752200b8252571
 	{
 		Insert();
 	}
+<<<<<<< HEAD
 	else if(this.task == 2)
 	{
 		Delete();
 	}
 	else if(this.task == 3)
+=======
+	*/
+	
+	/*public void Display()
+>>>>>>> f6a0d560407135ffcdb041a6df752200b8252571
 	{
 		CPU.maplist.printList();
 	}
+<<<<<<< HEAD
 	else if(this.task == 4)
 	{
 		CPU.maplist.Sort();
@@ -241,5 +313,31 @@ public void run() {
 	
 }
 
+=======
+/*
+	public static void main(String[] args)
+	{
+		Calendar cal = Calendar.getInstance();
+		  cal.getTime();
+		  SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		  //System.out.println(sdf.format(cal.getTime())); 
+		
+		  setCreate_time(cal.getTime());  
+		
+		
+		/*ArrayList<String> f = new ArrayList<String>();
+		f.add("Writing1");
+		f.add("Writing1");
+		f.add("Writing1");
+		f.add("Writing1");
+		f.add("Writing1");
+		f.add("29");
+		f.add("23");
+		f.add("Wah");
+		*/
+		
+		
+		
+>>>>>>> f6a0d560407135ffcdb041a6df752200b8252571
 
 }
